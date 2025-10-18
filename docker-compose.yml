@@ -1,5 +1,9 @@
 version: "3.9"
 
+networks:
+  traefik-net:
+    external: true
+
 services:
   traefik:
     image: traefik:v3.1
@@ -18,7 +22,3 @@ services:
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
     networks:
       - proxy
-
-networks:
-  proxy:
-    driver: bridge
